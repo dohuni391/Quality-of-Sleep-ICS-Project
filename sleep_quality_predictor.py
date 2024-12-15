@@ -7,7 +7,7 @@ import pandas as pd
 # Load the trained model and scaler
 model = joblib.load('best_model.pkl')  # Replace with your model file path
 
-# Encoding mappings
+# Encoding mappings (Premapped using the Label Encoder)
 encoders_info = {
     'Gender': {'Female': 0, 'Male': 1},
     'Occupation': {'Accountant': 0, 'Doctor': 1, 'Engineer': 2, 'Lawyer': 3, 'Manager': 4,
@@ -58,16 +58,15 @@ def predict_sleep_quality():
         # Predict
         prediction = model.predict(encoded_input)
 
-        # Display result
         messagebox.showinfo("Prediction", f"Predicted Quality of Sleep: {prediction[0]:.2f}")
     except Exception as e:
         messagebox.showerror("Error", f"Invalid input: {str(e)}")
 
-# Create the GUI application
+# Create the GUI application (GPT)
 root = tk.Tk()
 root.title("Sleep Quality Predictor")
 
-# Define input fields
+# Define input fields (GPT)
 gender_var = tk.StringVar()
 occupation_var = tk.StringVar()
 bmi_category_var = tk.StringVar()
@@ -113,8 +112,8 @@ daily_steps_entry.grid(row=9, column=1)
 tk.Label(root, text="Sleep Disorder (None/Insomnia/Sleep Apnea):").grid(row=10, column=0)
 tk.Entry(root, textvariable=sleep_disorder_var).grid(row=10, column=1)
 
-# Predict button
+# Predict button (GPT)
 tk.Button(root, text="Predict", command=predict_sleep_quality).grid(row=11, column=0, columnspan=2)
 
-# Run the application
+# Run the application (GPT)
 root.mainloop()
